@@ -1,0 +1,6 @@
+{
+    "btnLogin": ".ico-login",
+    "fldEmail": "#Email",
+    "fldPass" : "#Password",
+    "btnSubmit" : "[value='Log in']"
+}

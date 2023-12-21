@@ -1,0 +1,30 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "manifest_version": 3,
+  "name": "Ignore X-Frame headers",
+  "version": "2.0.0",
+
+  "description": "Drops X-Frame-Options and Content-Security-Policy HTTP response headers, allowing all pages to be iframed.",
+  "author": "Guillaume Ryder",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "net_rules",
+      "enabled": true,
+      "path": "net_rules.json"
+    }]
+  },
+
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
