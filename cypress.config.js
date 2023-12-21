@@ -167,7 +167,7 @@ module.exports = defineConfig({
      
 
     },
-    specPattern: 'cypress/integration/examples/*.js'  //cypress/integration/examples/*.js
+    specPattern: 'cypress/integration/examples/DemoWebShop.js'  //cypress/integration/examples/*.js
     //cucumber run -  **/*.feature  
   },
 })
