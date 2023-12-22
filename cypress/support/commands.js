@@ -45,17 +45,24 @@ Cypress.Commands.add('getTableValue', {prevSubject: false}, (row,col ) => {
    cy.wrap(el.text())
   })
 })
-
-  
   //Login api
   Cypress.Commands.add("LoginAPI", ()=>{
-  
       cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login', 
       {"userEmail": "sathishsuresh984@gmail.com", "userPassword": "Satz@984"})
       .then(function(response){
           expect(response.status).to.equal(200)
           Cypress.env('token', response.body.token)
   
+      })
+  })
+
+  //slect product
+Cypress.Commands.add('selectProduct', (actualProductName) => { 
+  cy.get('h4.card-title a').each(($el, index, $list) => {
+       const productName = $el.text()
+      if(productName == actualProductName){
+          cy.get('button[class="btn btn-info"]').eq(index).click()
+          }
       })
   })
 
