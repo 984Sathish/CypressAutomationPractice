@@ -30,7 +30,6 @@ module.exports = defineConfig({
     inlineAssets: true,
     saveAllAttempts: false,
     videoOnFailOnly: true,
-
   },
 
   env: {
@@ -61,11 +60,12 @@ module.exports = defineConfig({
           return error.message
         }
       }
-      
 
-      on('task', {readQRCode: readQRCode});
-      //mochawesome reporter
-      require('cypress-mochawesome-reporter/plugin')(on);  //Html report
+      //QR code
+      on('task', { readQRCode: readQRCode });
+
+      //mochawesome reporter - Html report
+      require('cypress-mochawesome-reporter/plugin')(on);
 
       //download file
       on('task', { downloadFile })
@@ -79,21 +79,23 @@ module.exports = defineConfig({
         return config;
       };
 
-      //lighthouse
+      //before launch - lighthouse
       on("before:browser:launch", (browser, launchOptions) => {
         prepareAudit(launchOptions);
       });
 
+      //lighthouse
       on("task", {
         lighthouse: lighthouse(),
         pa11y: pa11y(console.log.bind(console))
       });
 
-
+      //excel 
       on('task', {
         generateJSONFromExcel: generateJSONFromExcel,
       })
 
+      //get image text - function
       const getImageText = async (obj) => {
         let { fileName, lang, logger } = obj
         let recognizeResult = null
@@ -113,6 +115,7 @@ module.exports = defineConfig({
         }
       }
 
+      //compare image - function
       const compareImages = async (obj) => {
         const { fileName1, fileName2 } = obj
         const example1 = await Jimp.read(fileName1)
@@ -135,6 +138,7 @@ module.exports = defineConfig({
         compareImages: compareImages
       })
 
+      //cucumber
       module.exports = (on, config) => {
         on('file:preprocessor', cucumber())
       }
@@ -143,7 +147,7 @@ module.exports = defineConfig({
       module.exports = (on, config) => {
         require('@cypress/grep/src/plugin')(config)  //grep
         on('before:browser:launch', (browser, launchOptions) => {
-          launchOptions.extensions.push(path.resolve(__dirname,"../../Ignore-X-Frame-headers"))
+          launchOptions.extensions.push(path.resolve(__dirname, "../../Ignore-X-Frame-headers"))
         })
       }
 
@@ -152,19 +156,12 @@ module.exports = defineConfig({
       //   on('before:browser:launch', extensionloader.load('C:/Users/sathish.suresh/CypressAutomationPractice/Ignore-X-Frame-headers'));
       // }
 
-
-
+      //excel - function
       function generateJSONFromExcel(agrs) {
         const wb = xlsx.readFile(agrs.excelFilePath, { dateNF: "mm/dd/yyyy" });
         const ws = wb.Sheets[agrs.sheetName];
         return xlsx.utils.sheet_to_json(ws, { raw: false });
       }
-
-     
-
-    
-
-     
 
     },
     specPattern: 'cypress/integration/examples/DemoWebShop.js'  //cypress/integration/examples/*.js
