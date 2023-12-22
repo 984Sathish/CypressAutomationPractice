@@ -34,7 +34,8 @@
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.7.0",
     "mocha-allure-reporter": "^1.4.0",
-    "start-server-and-test": "^2.0.3"
+    "start-server-and-test": "^2.0.3",
+    "multiple-cucumber-html-reporter": "^3.5.0"
   },
   "dependencies": {
     "cucumber": "^6.0.7",
@@ -53,7 +54,9 @@
     "multiple-cucumber-html-reporter": "^3.5.0",
     "qrcode-reader": "^1.0.4",
     "tesseract.js": "^5.0.3",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "convert-excel-to-json": "^1.7.0",
+    "neat-csv": "5.1.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true

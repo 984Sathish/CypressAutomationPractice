@@ -46,6 +46,18 @@ Cypress.Commands.add('getTableValue', {prevSubject: false}, (row,col ) => {
   })
 })
 
+  
+  //Login api
+  Cypress.Commands.add("LoginAPI", ()=>{
+  
+      cy.request('POST', 'https://rahulshettyacademy.com/api/ecom/auth/login', 
+      {"userEmail": "sathishsuresh984@gmail.com", "userPassword": "Satz@984"})
+      .then(function(response){
+          expect(response.status).to.equal(200)
+          Cypress.env('token', response.body.token)
+  
+      })
+  })
 
 //
 // -- This is a child command --

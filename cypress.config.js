@@ -12,6 +12,7 @@ const path = require("path")
 const extensionloader = require('cypress-browser-extension-plugin/loader');
 var QRReader = require('qrcode-reader/');
 //const cucumber = require('cypress-cucumber-preprocessor').default
+const excelToJson = require('convert-excel-to-json')
 
 module.exports = defineConfig({
 
@@ -33,7 +34,7 @@ module.exports = defineConfig({
   },
 
   env: {
-    url: "https://demowebshop.tricentis.com/",
+    url: "https://rahulshettyacademy.com",
   },
 
   retries: 0, //runMode: 1, openMode : 1
@@ -162,6 +163,16 @@ module.exports = defineConfig({
         const ws = wb.Sheets[agrs.sheetName];
         return xlsx.utils.sheet_to_json(ws, { raw: false });
       }
+
+      //excel to json converter
+      on('task', {
+        excelToJsonConverter(filePath){
+            const result =  excelToJson({
+            source: fs.readFileSync(filePath)  //fs.readFileSync return a Buffer
+        });
+        return result;
+        }
+      })
 
     },
     specPattern: 'cypress/integration/examples/DemoWebShop.js'  //cypress/integration/examples/*.js
