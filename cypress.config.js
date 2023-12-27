@@ -11,7 +11,6 @@ const fs = require('fs')
 const path = require("path")
 const extensionloader = require('cypress-browser-extension-plugin/loader');
 var QRReader = require('qrcode-reader/');
-//const cucumber = require('cypress-cucumber-preprocessor').default
 const excelToJson = require('convert-excel-to-json')
 
 module.exports = defineConfig({
@@ -21,6 +20,7 @@ module.exports = defineConfig({
   video: true,
   screenshotOnRunFailure: true,
   experimentalStudio: true,
+  defaultCommandTimeout : 15000, //15 sec
 
 
   reporter: 'cypress-mochawesome-reporter',
@@ -35,6 +35,7 @@ module.exports = defineConfig({
 
   env: {
     url: "https://rahulshettyacademy.com",
+    appURL : "https://opensource-demo.orangehrmlive.com"
   },
 
   retries: 0, //runMode: 1, openMode : 1
@@ -175,7 +176,7 @@ module.exports = defineConfig({
       })
 
     },
-    specPattern: 'cypress/integration/examples/DemoWebShop.js'  //cypress/integration/examples/*.js
+    specPattern: 'cypress/integration/examples/NewFramework/*.js'  //cypress/integration/examples/*.js
     //cucumber run -  **/*.feature  
   },
 })

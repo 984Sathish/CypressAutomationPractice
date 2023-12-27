@@ -1,0 +1,15 @@
+{
+
+    "topOrderMenu" :"[class='oxd-topbar-body-nav-tab-item']",
+    "topOrderdrpdwnMenu" : "[class='oxd-topbar-body-nav-tab-link --more']",
+    "fldAutoComplete" : "[class='oxd-autocomplete-wrapper']",
+    "lblOption" : "[class='oxd-label oxd-input-field-required']",
+    "drpdownWithOption" : "[class='oxd-select-wrapper']",
+    "datePicker" : "[class='oxd-date-input']",
+    "drpdwnEmp" : "[placeholder='Type for hints...']",
+    "listUser" : "[role='listbox']",
+    "userTable" : "div[class='oxd-table-card']",
+    "btnSave" : "[type='submit']",
+    "lblFixOption" : "[class='oxd-label']",
+    "btnDialogOk" : "[role='document'] [type='button']"
+}

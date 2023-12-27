@@ -77,3 +77,22 @@ Cypress.Commands.add('selectProduct', (actualProductName) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('enterUserDetails', (adminPage, role, status, firstName, lastName, username ) => {
+  cy.get(adminPage.drpdwnUser).first().click()
+  cy.get(adminPage.listUser).contains(role).click()
+
+  //select status
+  cy.get(adminPage.drpdwnUser).last().click()
+  cy.get(adminPage.listUser).contains(status).click()
+
+  //type employee name
+  cy.get(adminPage.fldEmpName).type(firstName + " ", {timeout: 8000})
+  cy.get(adminPage.listUser).contains(lastName).click()
+
+   //type username
+  cy.get(adminPage.fldUsername).eq(1).type(username)
+
+})
+
