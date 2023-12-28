@@ -23,7 +23,7 @@ class FakerObject{
     }
 
     get jobTitle(){
-        return faker.helpers.arrayElement(['Account Assistant', 'HR Manager', 'QA Lead', 'QA Engineer', 'Chief Financial Officer', 'Support Specialist'])
+        return faker.helpers.arrayElement(['HR Manager', 'QA Lead', 'QA Engineer','Support Specialist'])  //Chief Financial Officer, Account Assistant
     }
 
     get jobCategory(){

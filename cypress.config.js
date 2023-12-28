@@ -21,7 +21,7 @@ module.exports = defineConfig({
   screenshotOnRunFailure: true,
   experimentalStudio: true,
   defaultCommandTimeout : 15000, //15 sec
-
+  videoCompression: true,
 
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
@@ -30,7 +30,7 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
-    videoOnFailOnly: true,
+    //videoOnFailOnly: true
   },
 
   env: {
