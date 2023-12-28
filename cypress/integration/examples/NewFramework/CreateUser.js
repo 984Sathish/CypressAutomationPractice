@@ -3,25 +3,30 @@ import FakerObject from '../Utils/FakerObject'
 
 describe('OrangeHRM Test Suite', function () {
 
+    //get excel file 
     const excelFilePath = "C:/Users/sathish.suresh/Documents/CypressAutomation/dataFile.xlsx"
+
+    //get sheet 
     const sheetName = 'CreateUser'
 
+    //get page objects
     const loginPage = require('../NewPageObjects/LoginPage.json')
     const dashboardPage = require('../NewPageObjects/Dashboard.json')
     const adminPage = require('../NewPageObjects/AdminPage.json')
     const pimPage = require('../NewPageObjects/PIMPage.json')
     const leavePage = require('../NewPageObjects/LeavePage.json')
 
+    //created faker object
     const fk = new FakerObject()
 
     it('Create User, Employee, Add Employee Details and Assign Leave', function () {
 
+        //get excel data
         cy.task('generateJSONFromExcel', { excelFilePath, sheetName }).then(
             (data) => {
 
                 //navigate url
                 cy.visit(Cypress.env('appURL'))
-                //cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/pim/contactDetails/empNumber/113')
 
                 //login 
                 cy.get(loginPage.fldUser).type(data[0].Username)
@@ -63,6 +68,7 @@ describe('OrangeHRM Test Suite', function () {
                 //add user
                 cy.get(adminPage.btnAdd).contains('Add').click()
 
+                //get role, status and username
                 const role = fk.role
                 const status = fk.status
                 const username = faker.internet.userName()
@@ -95,6 +101,7 @@ describe('OrangeHRM Test Suite', function () {
                 //verify user records
                 cy.get(adminPage.userTable).should('have.length', 1)
 
+                //click on PIM menu
                 cy.get(dashboardPage.btnMenu).contains('PIM').click()
 
                 //type employee name
@@ -106,7 +113,8 @@ describe('OrangeHRM Test Suite', function () {
                     cy.get(pimPage.empId).last().type(data.id)
                 })
 
-                cy.writeFile('user.json',{firstName : firstName, lastName: lastName, username : username, password: password } )
+                //write the input value in file
+                cy.writeFile('user.json', { firstName: firstName, lastName: lastName, username: username, password: password })
 
                 //search employee
                 cy.get(pimPage.btnSave).click()
@@ -181,6 +189,7 @@ describe('OrangeHRM Test Suite', function () {
                 //validate success message
                 cy.get(adminPage.msgSuccess).should('be.visible')
 
+                //attch file >>
                 // cy.get(pimPage.btnAddAttach).contains('Add').click()
                 // const fileName = "code.txt"
                 // cy.wait(5000)
