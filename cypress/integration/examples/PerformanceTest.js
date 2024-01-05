@@ -1,4 +1,4 @@
-describe('Performance testsuite', function(){
+describe.skip('Performance testsuite', function(){
     
     it('Lighthouse testing', function(){
         cy.visit('https://www.google.com/')

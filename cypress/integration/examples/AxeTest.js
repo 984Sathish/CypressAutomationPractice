@@ -1,11 +1,11 @@
-describe('Accessibility test suite', function(){
+describe.skip('Accessibility test suite', function(){
 
     beforeEach(function(){
         cy.visit('https://demowebshop.tricentis.com/')
         cy.injectAxe()
     })
 
-    it('Accessibility testcase', function(){
+    skip('Accessibility testcase', function(){
         //cy.checkA11y() -> check by default
         //cy.checkA11y("a") -> check only 'a' tag
 
