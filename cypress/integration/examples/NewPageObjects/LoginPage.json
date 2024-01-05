@@ -1,0 +1,5 @@
+{
+    "fldUser" : "[name='username']",
+    "fldPass" : "[name='password']",
+    "btnSubmit": "[type='submit']"
+}

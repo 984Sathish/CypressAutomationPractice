@@ -1,0 +1,20 @@
+{
+    "btnAddEmp" : "button",
+    "fldfirstName" : "[name='firstName']",
+    "fldlastName" : "[name='lastName']",
+    "empId" : "[class='oxd-input oxd-input--active']",
+    "btnSave" : "[type='submit']",
+    "userTable" : "div[class='oxd-table-card']",
+    "empTabs": "[class='orangehrm-tabs-item']",
+    "lblEmpTabs" : "[class='oxd-label']",
+    "btnAddAttach" : "[type='button']",
+    "fileBrowse" : ".oxd-file-button",
+    "fileName" : "[class='oxd-file-input-div']",
+    "listUser" : "[role='listbox']",
+    "drpdwnEmp" : "[placeholder='Type for hints...']",
+    "msgSuccess" : "p[class*='oxd-text--toast-message']",
+    "drpdownWithOption" : "[class='oxd-select-wrapper']",
+    "radioBtn" : "[class='oxd-radio-wrapper']",
+    "datePicker" : "[class='oxd-date-input']"
+
+}

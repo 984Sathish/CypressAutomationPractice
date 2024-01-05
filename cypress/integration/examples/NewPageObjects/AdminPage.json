@@ -1,0 +1,14 @@
+{
+    "btnAdd": "button",
+    "drpdwnUser" : ".oxd-select-wrapper",
+    "listUser" : "[role='listbox']",
+   "fldEmpName" : "[placeholder='Type for hints...']",
+   "fldUsername" : "[class='oxd-input oxd-input--active']",
+   "fldPassword" : "[type='password']",
+   "btnSave" : "[type='submit']",
+   "msgSuccess" : "p[class*='oxd-text--toast-message']",
+    "filterTable" : ".oxd-table-filter",
+    "userTable" : "div[class='oxd-table-card']"
+
+
+}
