@@ -109,7 +109,7 @@ describe('OrangeHRM Test Suite', function () {
                 cy.get(pimPage.listUser).contains(lastName).click()
 
                 //type employee id
-                cy.readFile('data.json').then((data) => {
+                cy.readFile('data.json').then((data) => {   //get id from json file
                     cy.get(pimPage.empId).last().type(data.id)
                 })
 

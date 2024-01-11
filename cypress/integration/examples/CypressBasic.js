@@ -215,7 +215,7 @@ describe('Cypress Automation Basic', function () {
 
     })
 
-    it.skip('double click', function () { //fail due to site 
+    it.skip('double click', function () { //fail due to site load issue 
 
         //Approach1 - trigger()
         cy.visit('https://nxtgenaiacademy.com/mouseevent/')
@@ -491,7 +491,7 @@ describe('Cypress Automation Basic', function () {
 
     })
 
-    it.skip('download file and read file', () => {
+    it.skip('download file and read file', () => { 
         cy.visit('http://autopract.com/selenium/download.html')
 
         //using readFile to verify downloaded file
